@@ -16,7 +16,6 @@ class PersonsFormWidget extends StatefulWidget {
 }
 
 class _PersonsFormWidgetState extends State<PersonsFormWidget> {
-
   final _nameController = TextEditingController();
 
   final _designationController = TextEditingController();
@@ -39,10 +38,10 @@ class _PersonsFormWidgetState extends State<PersonsFormWidget> {
           margin: const EdgeInsets.all(20),
           child: Column(
             children: [
-              createTextFormField(
+              _CustmTextFormField(
                   labelText: 'Name', controller: _nameController),
               const SizedBox(height: 20),
-              createTextFormField(
+              _CustmTextFormField(
                   labelText: 'Designation', controller: _designationController),
               const SizedBox(height: 20),
               ElevatedButton(
@@ -75,9 +74,17 @@ class _PersonsFormWidgetState extends State<PersonsFormWidget> {
       _designationController.text = widget.person!.designation ?? '';
     }
   }
+}
 
-  createTextFormField(
-      {required String labelText, required TextEditingController controller}) {
+class _CustmTextFormField extends StatelessWidget {
+  const _CustmTextFormField(
+      {required this.labelText, required this.controller});
+
+  final String labelText;
+  final TextEditingController controller;
+
+  @override
+  Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
           border: const OutlineInputBorder(), labelText: labelText),

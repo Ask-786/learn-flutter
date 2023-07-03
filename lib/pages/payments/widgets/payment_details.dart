@@ -77,8 +77,12 @@ class PaymentDetailsWidget extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  SvgPicture.asset('assets/svg/arrow_back.svg'),
-                  const SizedBox(width: 10),
+                  IconButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      icon: SvgPicture.asset('assets/svg/arrow_back.svg')),
+                  const SizedBox(width: 15),
                   const Text(
                     "Pay Details",
                     style: TextStyle(
@@ -101,6 +105,7 @@ class PaymentDetailsWidget extends StatelessWidget {
                       '\$${formControls['amount'].text}',
                       style: const TextStyle(
                           fontSize: 32,
+                          fontWeight: FontWeight.w600,
                           color: Colors.white,
                           fontFamily: 'Manrope'),
                     )

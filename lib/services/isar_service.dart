@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:isar/isar.dart';
 import 'package:path_provider/path_provider.dart';
 
-class IsarService {
+class IsarService extends ChangeNotifier {
   late Future<Isar> db;
 
   IsarService() {

@@ -16,12 +16,8 @@ class DetailsValuesWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget widget = Container();
-
-    if (type == DetailsValueType.normal) {
-      widget = Text(value);
-    } else if (type == DetailsValueType.status) {
-      widget = Row(
+    if (type == DetailsValueType.status) {
+      return Row(
         children: [
           Container(
             margin: const EdgeInsets.only(right: 3),
@@ -37,10 +33,12 @@ class DetailsValuesWidget extends StatelessWidget {
           )
         ],
       );
-    } else if (type == DetailsValueType.amount) {
-      widget = Text('\$$value');
-    } else if (type == DetailsValueType.from) {
-      widget = Row(
+    }
+    if (type == DetailsValueType.amount) {
+      return Text('\$$value');
+    }
+    if (type == DetailsValueType.from) {
+      return Row(
         children: [
           SvgPicture.asset('assets/svg/bank.svg'),
           const SizedBox(
@@ -49,9 +47,9 @@ class DetailsValuesWidget extends StatelessWidget {
           Text(value)
         ],
       );
-    } else if (type == DetailsValueType.date ||
-        type == DetailsValueType.source) {
-      widget = Column(
+    }
+    if (type == DetailsValueType.date || type == DetailsValueType.source) {
+      return Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           Text(value),
@@ -64,8 +62,9 @@ class DetailsValuesWidget extends StatelessWidget {
           ),
         ],
       );
-    } else if (type == DetailsValueType.type) {
-      widget = Container(
+    }
+    if (type == DetailsValueType.type) {
+      return Container(
         height: 23,
         decoration: BoxDecoration(
             color: const Color(0xFFE0EDFF),
@@ -82,7 +81,6 @@ class DetailsValuesWidget extends StatelessWidget {
         ),
       );
     }
-
-    return widget;
+    return Text(value);
   }
 }

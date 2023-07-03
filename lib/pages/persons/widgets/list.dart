@@ -14,11 +14,12 @@ class ListWidget extends StatelessWidget {
 
     return ValueListenableBuilder(
         valueListenable: IsarService.personsValueNotifier,
-        builder: (BuildContext ctx, List<Persons> persons, Widget? child) {
+        builder: (BuildContext valueListanableContext, List<Persons> persons,
+            Widget? child) {
           return ListView.separated(
-              physics: const PageScrollPhysics(),
               shrinkWrap: true,
-              itemBuilder: (BuildContext ctx, int index) {
+              physics: const ScrollPhysics(),
+              itemBuilder: (BuildContext valueListanableContext, int index) {
                 final data = persons[index];
                 return ListTile(
                   title: Text(data.name ?? ''),
@@ -26,7 +27,7 @@ class ListWidget extends StatelessWidget {
                   trailing: Row(mainAxisSize: MainAxisSize.min, children: [
                     IconButton(
                         onPressed: () {
-                          openEditDialog(ctx, data);
+                          openEditDialog(valueListanableContext, data);
                         },
                         icon: const Icon(Icons.edit)),
                     IconButton(
@@ -37,7 +38,7 @@ class ListWidget extends StatelessWidget {
                   ]),
                 );
               },
-              separatorBuilder: (BuildContext ctx, index) {
+              separatorBuilder: (BuildContext valueListanableContext, index) {
                 return const Divider();
               },
               itemCount: persons.length);

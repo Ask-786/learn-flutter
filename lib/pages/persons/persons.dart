@@ -13,13 +13,12 @@ class PersonsWidget extends StatelessWidget {
             backgroundColor: Theme.of(context).colorScheme.inversePrimary,
             title: const Text('Persons'),
           ),
-          body: SingleChildScrollView(
-              child: Column(children: [
+          body: ListView(children: [
             const PersonsFormWidget(
               mode: Mode.create,
             ),
             ListWidget()
-          ]))),
+          ])),
     );
   }
 }
