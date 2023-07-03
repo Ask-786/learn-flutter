@@ -1,4 +1,6 @@
+import 'package:first_project/pages/payments/widgets/details_values.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart' show toBeginningOfSentenceCase;
 
 class PaymentDetailsWidget extends StatelessWidget {
@@ -22,33 +24,36 @@ class PaymentDetailsWidget extends StatelessWidget {
                 Text(toBeginningOfSentenceCase(formControls.keys.toList()[i]) ??
                     ''),
                 if (formControls.keys.toList()[i] == 'date') ...[
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Text(formControls.values.toList()[i].text),
-                      Text(
-                        formControls['time'].text,
-                        style: const TextStyle(
-                            fontSize: 12, fontWeight: FontWeight.w400),
-                      ),
-                    ],
+                  DetailsValuesWidget(
+                    type: DetailsValueType.date,
+                    value: formControls.values.toList()[i].text,
+                    additionalValue: formControls['time'].text,
                   )
                 ] else if (formControls.keys.toList()[i] == 'source') ...[
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Text(formControls.values.toList()[i].text),
-                      const Text(
-                        '*******4479',
-                        style: TextStyle(
-                            fontSize: 12, fontWeight: FontWeight.w400),
-                      )
-                    ],
-                  )
+                  DetailsValuesWidget(
+                      type: DetailsValueType.source,
+                      value: formControls.values.toList()[i].text,
+                      additionalValue: '*******3433')
+                ] else if (formControls.keys.toList()[i] == 'amount') ...[
+                  DetailsValuesWidget(
+                      type: DetailsValueType.amount,
+                      value: formControls.values.toList()[i].text)
+                ] else if (formControls.keys.toList()[i] == 'status') ...[
+                  DetailsValuesWidget(
+                      type: DetailsValueType.status,
+                      value: formControls.values.toList()[i].text)
+                ] else if (formControls.keys.toList()[i] == 'type') ...[
+                  DetailsValuesWidget(
+                      type: DetailsValueType.type,
+                      value: formControls.values.toList()[i].text)
+                ] else if (formControls.keys.toList()[i] == 'from') ...[
+                  DetailsValuesWidget(
+                      type: DetailsValueType.from,
+                      value: formControls.values.toList()[i].text)
                 ] else ...[
-                  Text(formControls.keys.toList()[i] == 'amount'
-                      ? '\$${formControls.values.toList()[i].text}'
-                      : formControls.values.toList()[i].text),
+                  DetailsValuesWidget(
+                      type: DetailsValueType.normal,
+                      value: formControls.values.toList()[i].text)
                 ],
               ],
             ),
@@ -72,15 +77,7 @@ class PaymentDetailsWidget extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  IconButton(
-                    icon: const Icon(
-                      Icons.arrow_back,
-                      color: Colors.white,
-                    ),
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                  ),
+                  SvgPicture.asset('assets/svg/arrow_back.svg'),
                   const SizedBox(width: 10),
                   const Text(
                     "Pay Details",
@@ -92,21 +89,11 @@ class PaymentDetailsWidget extends StatelessWidget {
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 97),
+                padding: const EdgeInsets.only(top: 70),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(100),
-                          border: Border.all(width: 0),
-                          color: Colors.white),
-                      child: const Icon(
-                        Icons.check_circle,
-                        color: Color(0xFF2ECC77),
-                        size: 48,
-                      ),
-                    ),
+                    SvgPicture.asset('assets/svg/green_check.svg'),
                     const SizedBox(
                       width: 10,
                     ),
@@ -133,7 +120,9 @@ class PaymentDetailsWidget extends StatelessWidget {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     color: Colors.white),
-                child: Column(children: boxChildres),
+                child: Column(
+                  children: boxChildres,
+                ),
               ),
               Container(
                 margin: const EdgeInsets.only(top: 20),
@@ -143,9 +132,10 @@ class PaymentDetailsWidget extends StatelessWidget {
                 width: 64.5,
                 height: 51.9,
                 padding: const EdgeInsets.all(15),
-                child: const Icon(
-                  Icons.share,
-                  color: Colors.white,
+                child: SvgPicture.asset(
+                  'assets/svg/share_button.svg',
+                  height: 17.5,
+                  width: 17,
                 ),
               )
             ],

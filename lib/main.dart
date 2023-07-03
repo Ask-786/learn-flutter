@@ -51,12 +51,12 @@ class MyHomePage extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushNamed(context, '/persons');
                 },
-                child: const Text("Go To Persons")),
+                child: const Text('Go To Persons')),
             ElevatedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/payments');
                 },
-                child: const Text("Go To Payments")),
+                child: const Text('Go To Payments')),
           ],
         ),
       ),
