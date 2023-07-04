@@ -26,7 +26,9 @@ class MyApp extends StatelessWidget {
           '/persons': (context) => const PersonsWidget(),
           '/payments': (context) => const PaymentsWidget(),
           '/payments/payments-details': (context) => const PaymentDetailsWidget(),
-        });
+      },
+      debugShowCheckedModeBanner: false,
+    );
   }
 }
 
