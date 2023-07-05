@@ -1,7 +1,10 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:first_project/services/Models/api_response.dart';
+import 'package:first_project/services/models/todos/todos.dart';
+import 'package:first_project/services/models/todos/todos_list.dart';
 
 class IApiRes<T> {
   final bool success;
@@ -22,6 +25,18 @@ class DioService {
     } on DioException catch (e) {
       throw HttpException(
           e.response?.data['errorMsg'] ?? 'Something went wrong!!');
+    }
+  }
+
+  Future<TodosList> getTodos() async {
+    const rootUrl = 'https://jsonplaceholder.typicode.com';
+
+    try {
+      final r = await dio.get('$rootUrl/todos');
+      final Map<String, dynamic> map = {"todos": r.data};
+      return TodosList.fromJoson(map);
+    } catch (e) {
+      throw Exception(e);
     }
   }
 }
