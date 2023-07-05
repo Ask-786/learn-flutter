@@ -13,9 +13,8 @@ class PaymentsWidget extends StatelessWidget {
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-        PaymentsFormWidget()
-      ],),
+        children: [PaymentsFormWidget()],
+      ),
     );
   }
 }
