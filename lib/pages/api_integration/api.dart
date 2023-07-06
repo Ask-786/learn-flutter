@@ -1,8 +1,7 @@
 import 'dart:io';
 
-import 'package:first_project/services/dio_service.dart';
+import 'package:first_project/services/persons_service.dart';
 import 'package:flutter/material.dart';
-import 'package:loader_overlay/loader_overlay.dart';
 
 enum ResponseType { success, failure, loading }
 
@@ -15,10 +14,12 @@ class ApiIntegrationWidget extends StatefulWidget {
 
 class _ApiIntegrationWidgetState extends State<ApiIntegrationWidget> {
   final _usernameController = TextEditingController();
-  final _dioService = DioService();
+  final _dioService = PersonsService();
 
   final _formFieldKey = GlobalKey<FormState>();
-  Widget statusWidget = const SizedBox();
+  bool statusStat = false;
+  ResponseType type = ResponseType.success;
+  String message = '';
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,6 @@ class _ApiIntegrationWidgetState extends State<ApiIntegrationWidget> {
         child: Scaffold(
       appBar: AppBar(
         title: const Text('Validate Username'),
-        elevation: 20,
       ),
       body: Form(
         key: _formFieldKey,
@@ -44,7 +44,7 @@ class _ApiIntegrationWidgetState extends State<ApiIntegrationWidget> {
               onChanged: (value) {
                 if (value == '') {
                   setState(() {
-                    statusWidget = const SizedBox();
+                    statusStat = false;
                   });
                 }
               },
@@ -54,7 +54,12 @@ class _ApiIntegrationWidgetState extends State<ApiIntegrationWidget> {
             const SizedBox(
               height: 3,
             ),
-            statusWidget,
+            statusStat == true
+                ? _StatusWidget(
+                    type: type,
+                    message: message,
+                  )
+                : const SizedBox(),
             TextButton(
                 onPressed: () {
                   onPressButton(context);
@@ -69,26 +74,23 @@ class _ApiIntegrationWidgetState extends State<ApiIntegrationWidget> {
   onPressButton(BuildContext context) async {
     if (_formFieldKey.currentState!.validate()) {
       setState(() {
-        statusWidget = const _StatusWidget(
-            type: ResponseType.loading, message: "Loading..");
+        type = ResponseType.loading;
+        message = "Loading..";
+        statusStat = true;
       });
       try {
         final response =
             await _dioService.validateUserName(_usernameController.text);
         if (response.success == true) {
           setState(() {
-            context.loaderOverlay.hide();
-            statusWidget = _StatusWidget(
-                type: ResponseType.success,
-                message: response.message ?? 'Success');
+            type = ResponseType.success;
+            message = response.message ?? 'Success';
           });
         }
       } on HttpException catch (e) {
-        context.loaderOverlay.hide();
         setState(() {
-          context.loaderOverlay.hide();
-          statusWidget =
-              _StatusWidget(type: ResponseType.failure, message: e.message);
+          type = ResponseType.failure;
+          message = e.message;
         });
       }
     }
