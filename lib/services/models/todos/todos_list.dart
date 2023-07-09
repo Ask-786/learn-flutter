@@ -1,5 +1,6 @@
-import 'package:first_project/services/models/todos/todos.dart';
 import 'package:json_annotation/json_annotation.dart';
+
+import 'todos.dart';
 
 part 'todos_list.g.dart';
 

@@ -1,7 +1,8 @@
-import 'package:first_project/collections/persons.dart';
-import 'package:first_project/services/isar_service.dart';
-import 'package:first_project/pages/persons/widgets/form.dart';
 import 'package:flutter/material.dart';
+
+import '../../../collections/persons.dart';
+import '../../../services/isar_service.dart';
+import 'form.dart';
 
 class ListWidget extends StatelessWidget {
   ListWidget({super.key});

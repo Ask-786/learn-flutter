@@ -1,5 +1,6 @@
-import 'package:first_project/pages/payments/widgets/form.dart';
 import 'package:flutter/material.dart';
+
+import 'widgets/form.dart';
 
 class PaymentsWidget extends StatelessWidget {
   const PaymentsWidget({super.key});

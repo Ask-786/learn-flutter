@@ -1,9 +1,10 @@
 import 'dart:io';
 
-import 'package:first_project/pages/api_integration/view_todo.dart';
-import 'package:first_project/services/models/todos_service.dart';
-import 'package:first_project/services/models/todos/todos_list.dart';
 import 'package:flutter/material.dart';
+
+import '../../services/models/todos/todos_list.dart';
+import '../../services/models/todos_service.dart';
+import 'view_todo.dart';
 
 class TodosWidget extends StatefulWidget {
   const TodosWidget({super.key});

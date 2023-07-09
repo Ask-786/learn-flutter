@@ -1,7 +1,8 @@
 import 'dart:io';
 
-import 'package:first_project/services/persons_service.dart';
 import 'package:flutter/material.dart';
+
+import '../../services/persons_service.dart';
 
 enum ResponseType { success, failure, loading }
 

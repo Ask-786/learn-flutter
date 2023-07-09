@@ -1,6 +1,7 @@
-import 'package:first_project/collections/persons.dart';
-import 'package:first_project/services/isar_service.dart';
 import 'package:flutter/material.dart';
+
+import '../../../collections/persons.dart';
+import '../../../services/isar_service.dart';
 
 enum Mode { edit, create }
 

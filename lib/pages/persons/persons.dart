@@ -1,6 +1,7 @@
-import 'package:first_project/pages/persons/widgets/form.dart';
-import 'package:first_project/pages/persons/widgets/list.dart';
 import 'package:flutter/material.dart';
+
+import 'widgets/form.dart';
+import 'widgets/list.dart';
 
 class PersonsWidget extends StatelessWidget {
   const PersonsWidget({super.key});

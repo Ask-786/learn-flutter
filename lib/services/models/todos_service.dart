@@ -1,8 +1,9 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:first_project/services/models/todos/todos.dart';
-import 'package:first_project/services/models/todos/todos_list.dart';
+
+import 'todos/todos.dart';
+import 'todos/todos_list.dart';
 
 class TodosSerice {
   final dio = Dio();

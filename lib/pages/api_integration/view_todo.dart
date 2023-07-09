@@ -1,8 +1,9 @@
 import 'dart:io';
 
-import 'package:first_project/services/models/todos_service.dart';
-import 'package:first_project/services/models/todos/todos.dart';
 import 'package:flutter/material.dart';
+
+import '../../services/models/todos/todos.dart';
+import '../../services/models/todos_service.dart';
 
 class ViewTodoWidget extends StatefulWidget {
   const ViewTodoWidget({super.key, required this.id});

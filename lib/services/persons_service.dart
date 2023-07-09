@@ -1,8 +1,9 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:first_project/services/Models/api_response.dart';
-import 'package:first_project/services/models/username_error_response.dart';
+
+import 'models/api_response.dart';
+import 'models/username_error_response.dart';
 
 class PersonsService {
   final dio = Dio();

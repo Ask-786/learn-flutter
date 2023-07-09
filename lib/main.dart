@@ -1,11 +1,11 @@
-import 'package:first_project/pages/api_integration/api.dart';
-import 'package:first_project/pages/api_integration/todos.dart';
-import 'package:first_project/pages/payments/payments.dart';
-import 'package:first_project/pages/payments/widgets/payment_details.dart';
-import 'package:first_project/pages/persons/persons.dart';
-import 'package:first_project/services/isar_service.dart';
 import 'package:flutter/material.dart';
-import 'package:loader_overlay/loader_overlay.dart';
+
+import 'pages/api_integration/api.dart';
+import 'pages/api_integration/todos.dart';
+import 'pages/payments/payments.dart';
+import 'pages/payments/widgets/payment_details.dart';
+import 'pages/persons/persons.dart';
+import 'services/isar_service.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,9 +22,9 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: false,
+        useMaterial3: true,
       ),
-      home: const LoaderOverlay(child: MyHomePage(title: 'Home Page')),
+      home: const MyHomePage(title: 'Home Page'),
       routes: {
         '/persons': (context) => const PersonsWidget(),
         '/payments': (context) => const PaymentsWidget(),

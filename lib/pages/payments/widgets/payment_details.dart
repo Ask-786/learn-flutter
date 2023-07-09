@@ -1,7 +1,8 @@
-import 'package:first_project/pages/payments/widgets/details_values.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart' show toBeginningOfSentenceCase;
+
+import 'details_values.dart';
 
 class PaymentDetailsWidget extends StatelessWidget {
   const PaymentDetailsWidget({super.key});
