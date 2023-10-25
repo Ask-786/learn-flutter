@@ -79,18 +79,20 @@ class PaymentDetailsWidget extends StatelessWidget {
               Row(
                 children: [
                   IconButton(
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                      icon: SvgPicture.asset('assets/svg/arrow_back.svg')),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    icon: SvgPicture.asset('assets/svg/arrow_back.svg'),
+                  ),
                   const SizedBox(width: 15),
                   const Text(
                     "Pay Details",
                     style: TextStyle(
-                        fontSize: 17,
-                        color: Colors.white,
-                        fontFamily: 'Manrope'),
-                  )
+                      fontSize: 17,
+                      color: Colors.white,
+                      fontFamily: 'Manrope',
+                    ),
+                  ),
                 ],
               ),
               Padding(
@@ -105,10 +107,11 @@ class PaymentDetailsWidget extends StatelessWidget {
                     Text(
                       '\$${formControls['amount'].text}',
                       style: const TextStyle(
-                          fontSize: 32,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white,
-                          fontFamily: 'Manrope'),
+                        fontSize: 32,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                        fontFamily: 'Manrope',
+                      ),
                     )
                   ],
                 ),
@@ -117,7 +120,10 @@ class PaymentDetailsWidget extends StatelessWidget {
                 margin: const EdgeInsets.only(top: 15),
                 child: const Text(
                   "Success",
-                  style: TextStyle(fontSize: 16, color: Color(0xFF31C64F)),
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Color(0xFF31C64F),
+                  ),
                 ),
               ),
               Container(
@@ -133,8 +139,9 @@ class PaymentDetailsWidget extends StatelessWidget {
               Container(
                 margin: const EdgeInsets.only(top: 20),
                 decoration: BoxDecoration(
-                    color: const Color(0xFF478DF6),
-                    borderRadius: BorderRadius.circular(25)),
+                  color: const Color(0xFF478DF6),
+                  borderRadius: BorderRadius.circular(25),
+                ),
                 width: 64.5,
                 height: 51.9,
                 padding: const EdgeInsets.all(15),

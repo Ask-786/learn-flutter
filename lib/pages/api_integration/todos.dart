@@ -33,9 +33,7 @@ class _TodosWidgetState extends State<TodosWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Todos'),
-      ),
+      appBar: AppBar(title: const Text('Todos')),
       body: FutureBuilder(
         future: todos,
         builder: (context, snapshot) {
@@ -54,10 +52,13 @@ class _TodosWidgetState extends State<TodosWidget> {
                         ? 'Completed'
                         : 'Not Completed'),
                     onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
                           builder: (context) => ViewTodoWidget(
-                                id: todo?.id.toString() ?? '',
-                              )));
+                            id: todo?.id.toString() ?? '',
+                          ),
+                        ),
+                      );
                     },
                   );
                 },

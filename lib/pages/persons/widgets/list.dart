@@ -23,18 +23,23 @@ class ListWidget extends StatelessWidget {
                 return ListTile(
                   title: Text(data.name ?? ''),
                   subtitle: Text(data.designation ?? ''),
-                  trailing: Row(mainAxisSize: MainAxisSize.min, children: [
-                    IconButton(
+                  trailing: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      IconButton(
                         onPressed: () {
                           openEditDialog(valueListenableContext, data);
                         },
-                        icon: const Icon(Icons.edit)),
-                    IconButton(
+                        icon: const Icon(Icons.edit),
+                      ),
+                      IconButton(
                         onPressed: () {
                           isarService.deletePerson(data.id);
                         },
-                        icon: const Icon(Icons.delete)),
-                  ]),
+                        icon: const Icon(Icons.delete),
+                      ),
+                    ],
+                  ),
                 );
               },
               separatorBuilder: (BuildContext valueListenableContext, index) {
@@ -46,18 +51,19 @@ class ListWidget extends StatelessWidget {
 
   openEditDialog(BuildContext context, Persons person) {
     return showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: (context) {
-          return AlertDialog(
-            title: const Text("Edit Person"),
-            content: SingleChildScrollView(
-              child: PersonsFormWidget(
-                mode: Mode.edit,
-                person: person,
-              ),
+      context: context,
+      barrierDismissible: false,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text("Edit Person"),
+          content: SingleChildScrollView(
+            child: PersonsFormWidget(
+              mode: Mode.edit,
+              person: person,
             ),
-          );
-        });
+          ),
+        );
+      },
+    );
   }
 }

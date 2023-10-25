@@ -107,36 +107,38 @@ class _StatusWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        width: double.infinity,
-        height: 20,
-        child: Row(children: [
+      width: double.infinity,
+      height: 20,
+      child: Row(
+        children: [
           type == ResponseType.loading
               ? const SizedBox(
                   height: 10,
                   width: 10,
                   child: CircularProgressIndicator(
                     strokeWidth: 2,
-                  ))
+                  ),
+                )
               : Icon(
                   type == ResponseType.success
                       ? Icons.check_circle
                       : Icons.cancel,
                   color:
                       type == ResponseType.success ? Colors.green : Colors.red,
-                  size: 16,
-                ),
-          const SizedBox(
-            width: 3,
-          ),
+                  size: 16),
+          const SizedBox(width: 3),
           Text(
             message,
             style: TextStyle(
-                color: type == ResponseType.loading
-                    ? Colors.black
-                    : type == ResponseType.success
-                        ? Colors.green
-                        : Colors.red),
+              color: type == ResponseType.loading
+                  ? Colors.black
+                  : type == ResponseType.success
+                      ? Colors.green
+                      : Colors.red,
+            ),
           ),
-        ]));
+        ],
+      ),
+    );
   }
 }

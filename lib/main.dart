@@ -12,9 +12,9 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
-
   final isarService = IsarService();
+
+  MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -38,45 +38,50 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key, required this.title});
-
   final String title;
+
+  const MyHomePage({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            ElevatedButton(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(title),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              ElevatedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/persons');
                 },
-                child: const Text('Go To Persons')),
-            ElevatedButton(
+                child: const Text('Go To Persons'),
+              ),
+              ElevatedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/payments');
                 },
-                child: const Text('Go To Payments')),
-            ElevatedButton(
+                child: const Text('Go To Payments'),
+              ),
+              ElevatedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/apis');
                 },
-                child: const Text('Go To Api')),
-            ElevatedButton(
+                child: const Text('Go To Api'),
+              ),
+              ElevatedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/todos');
                 },
-                child: const Text('Todos')),
-          ],
+                child: const Text('Todos'),
+              ),
+            ],
+          ),
         ),
       ),
-    ));
+    );
   }
 }
