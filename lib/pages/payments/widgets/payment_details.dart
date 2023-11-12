@@ -17,51 +17,54 @@ class PaymentDetailsWidget extends StatelessWidget {
     for (int i = 0; i < formControls.keys.length; i++) {
       if (formControls.keys.toList()[i] != 'time') {
         boxChildres.add(
-          Column(children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(toBeginningOfSentenceCase(formControls.keys.toList()[i]) ??
-                    ''),
-                if (formControls.keys.toList()[i] == 'date') ...[
-                  DetailsValuesWidget(
-                    type: DetailsValueType.date,
-                    value: formControls.values.toList()[i].text,
-                    additionalValue: formControls['time'].text,
-                  )
-                ] else if (formControls.keys.toList()[i] == 'source') ...[
-                  DetailsValuesWidget(
-                      type: DetailsValueType.source,
+          Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(toBeginningOfSentenceCase(
+                          formControls.keys.toList()[i]) ??
+                      ''),
+                  if (formControls.keys.toList()[i] == 'date') ...[
+                    DetailsValuesWidget(
+                      type: DetailsValueType.date,
                       value: formControls.values.toList()[i].text,
-                      additionalValue: '*******3433')
-                ] else if (formControls.keys.toList()[i] == 'amount') ...[
-                  DetailsValuesWidget(
-                      type: DetailsValueType.amount,
-                      value: formControls.values.toList()[i].text)
-                ] else if (formControls.keys.toList()[i] == 'status') ...[
-                  DetailsValuesWidget(
-                      type: DetailsValueType.status,
-                      value: formControls.values.toList()[i].text)
-                ] else if (formControls.keys.toList()[i] == 'type') ...[
-                  DetailsValuesWidget(
-                      type: DetailsValueType.type,
-                      value: formControls.values.toList()[i].text)
-                ] else if (formControls.keys.toList()[i] == 'from') ...[
-                  DetailsValuesWidget(
-                      type: DetailsValueType.from,
-                      value: formControls.values.toList()[i].text)
-                ] else ...[
-                  DetailsValuesWidget(
-                      type: DetailsValueType.normal,
-                      value: formControls.values.toList()[i].text)
+                      additionalValue: formControls['time'].text,
+                    )
+                  ] else if (formControls.keys.toList()[i] == 'source') ...[
+                    DetailsValuesWidget(
+                        type: DetailsValueType.source,
+                        value: formControls.values.toList()[i].text,
+                        additionalValue: '*******3433')
+                  ] else if (formControls.keys.toList()[i] == 'amount') ...[
+                    DetailsValuesWidget(
+                        type: DetailsValueType.amount,
+                        value: formControls.values.toList()[i].text)
+                  ] else if (formControls.keys.toList()[i] == 'status') ...[
+                    DetailsValuesWidget(
+                        type: DetailsValueType.status,
+                        value: formControls.values.toList()[i].text)
+                  ] else if (formControls.keys.toList()[i] == 'type') ...[
+                    DetailsValuesWidget(
+                        type: DetailsValueType.type,
+                        value: formControls.values.toList()[i].text)
+                  ] else if (formControls.keys.toList()[i] == 'from') ...[
+                    DetailsValuesWidget(
+                        type: DetailsValueType.from,
+                        value: formControls.values.toList()[i].text)
+                  ] else ...[
+                    DetailsValuesWidget(
+                        type: DetailsValueType.normal,
+                        value: formControls.values.toList()[i].text)
+                  ],
                 ],
-              ],
-            ),
-            const SizedBox(
-              height: 20,
-            )
-          ]),
+              ),
+              const SizedBox(
+                height: 20,
+              )
+            ],
+          ),
         );
       }
     }

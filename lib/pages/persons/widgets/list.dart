@@ -27,11 +27,10 @@ class ListWidget extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       IconButton(
-                        onPressed: () {
-                          openEditDialog(valueListenableContext, data);
-                        },
-                        icon: const Icon(Icons.edit),
-                      ),
+                          onPressed: () {
+                            openEditDialog(valueListenableContext, data);
+                          },
+                          icon: const Icon(Icons.edit),),
                       IconButton(
                         onPressed: () {
                           isarService.deletePerson(data.id);
